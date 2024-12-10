@@ -1,0 +1,21 @@
+<h1>BLOGS</h1>
+
+<% blogs.forEach(blog => { %>
+<div class="card mb-3">
+  <div class="card-header"><%=new Date(blog.id).toLocaleDateString()%></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= blog.title%></h5>
+    <p class="card-text"><%=blog.content.slice(0, 100) + "..."%></p>
+    <div class="row">
+      <div class="col-md-6">
+        <a href="/blogs/blog/<%=blog.id%>" class="btn btn-primary">Read</a>
+      </div>
+      <div class="col-md-6 text-end">
+        <form action="/blog/<%=blog.id%>" method="GET">
+          <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%});%>
